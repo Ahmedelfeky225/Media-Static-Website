@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="details-page.css" />
+  </head>
+  <body>
+    <section class="login-container d-flex">
+      <form class="login-form w-50" id="loginForm">
+        <h1>تسجيل الدخول</h1>
+
+        <!-- رقم الهاتف + أيقونة -->
+        <div class="w-50 contain-input" style="position: relative">
+          <input class="w-100" type="text" placeholder="رقم الهاتف" />
+          <i
+            class="bi bi-telephone"
+            style="
+              position: absolute;
+              right: 10px;
+              top: 50%;
+              transform: translateY(-50%);
+              color: #555c60;
+            "
+          ></i>
+        </div>
+
+        <!-- كلمة المرور + أيقونة -->
+        <div class="w-50 contain-input" style="position: relative">
+          <input class="w-100" type="password" placeholder="كلمه المرور" />
+          <i
+            class="bi bi-lock"
+            style="
+              position: absolute;
+              right: 10px;
+              top: 50%;
+              transform: translateY(-50%);
+              color: #555c60;
+            "
+          ></i>
+        </div>
+
+        <!-- تذكرني لاحقاً -->
+        <div
+          class="remember-text d-flex w-50 align-items-center justify-content-start"
+        >
+          <img src="./images/Vector (7).png" alt="" style="margin-left: 5px" />
+          <a class="mb-0" style="color: #053b6a; font-size: 13px">
+            تذكرني لاحقاً
+          </a>
+        </div>
+
+        <button type="submit" class="bg-dark">تسجيل الدخول</button>
+      </form>
+
+      <div
+        class="welcome-message justify-content-center bg-red w-50 d-flex justify-content-center align-items-center"
+        style="margin-top: 350px"
+      >
+        <img src="images/Welcome Container.png" alt="welcome-message" />
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          window.location.href = "SearchPage.html";
+        });
+    </script>
+  </body>
+</html>

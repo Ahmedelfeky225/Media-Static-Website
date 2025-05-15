@@ -1,0 +1,227 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  direction: rtl;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Cairo", sans-serif;
+  font-weight: 700;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Cairo", sans-serif;
+}
+
+.login-container {
+  width: 100%;
+  margin: 0 auto;
+  background: url("/images/57b71f9c621f581792fa8ce8be0a2d4e4df8b8b5.png")
+    no-repeat center center;
+  background-size: cover;
+  display: flex;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.login-form {
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form h1 {
+  font-size: 26px;
+  color: #053b6a;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.login-form input {
+  width: 50%;
+  border: none;
+  outline: none;
+  border-radius: none;
+  font-size: 16px;
+  padding: 16px 32px 16px 20px;
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(224, 224, 224, 0.9);
+}
+
+.login-form button {
+  width: 50%;
+  padding: 10px;
+  background: linear-gradient(89.85deg, #5377cb 0.12%, #032b82 99.88%);
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 16px 12px 16px 12px;
+}
+
+.login-form button:hover {
+  background-color: #003d7a;
+}
+
+/* Search Page */
+.search-container {
+  width: 100%;
+  margin: 0 auto;
+  background: url("/images/57b71f9c621f581792fa8ce8be0a2d4e4df8b8b5.png")
+    no-repeat center center;
+  background-size: cover;
+  min-height: 100dvh;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.search-container .header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  column-gap: 1rem;
+}
+.search-container .header img {
+  width: 50px;
+  cursor: pointer;
+}
+
+.search-container .main-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.logo .logo-img {
+  width: 200px;
+  height: auto;
+}
+
+.search-box {
+  width: 100%;
+  max-width: 700px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 13px 20px;
+  font-size: 20px;
+  border: 1px solid #e1bfbf;
+  border-radius: 50px;
+  font-family: "Cairo", sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  outline: none;
+  color: #555555;
+}
+
+.search-box input::placeholder {
+  color: #a6a6a6;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+.dropdown-toggle:hover,
+.dropdown-toggle {
+  background-color: transparent !important;
+  border: none;
+}
+
+.menu-items a {
+  color: #fff;
+  font-weight: 500;
+  width: fit-content;
+}
+.menu-items a:hover > p {
+  color: #fff;
+}
+.menu-items a:hover {
+  background-color: #5454540d;
+}
+
+@media (max-width: 867px) {
+  .login-container {
+    justify-content: center;
+    flex-direction: column !important;
+  }
+  .login-form {
+    width: 100% !important;
+    margin: 0px auto 0 0;
+    padding: 0 20px;
+    border-radius: 5px;
+    gap: 35px;
+  }
+  .welcome-message,
+  .welcome-message img {
+    margin-top: 0 !important;
+    flex-grow: 1 !important;
+    width: 100% !important;
+    background-color: #babeb9;
+  }
+  .login-form input,
+  .login-form .contain-input,
+  .remember-text,
+  .login-form button {
+    width: 100% !important;
+  }
+  /* Search Page */
+  .search-container {
+    padding: 10px;
+    background-position: 6% !important;
+  }
+  .search-container .header img {
+    width: 30px;
+  }
+  .search-box input {
+    padding: 10px;
+  }
+
+  .search-box input::placeholder {
+    font-size: 16px;
+  }
+  /* Search Page */
+
+  .table-responsive table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .table-responsive th,
+  .table-responsive td {
+    min-width: 100px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 868px) and (max-width: 1200px) {
+  .search-container {
+    background-position: 0% !important;
+  }
+}
+
+.collapse-title button > img {
+  transform: rotate(0deg);
+}
