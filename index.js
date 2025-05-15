@@ -1,3 +1,4 @@
+// image light gallary
 document.addEventListener("DOMContentLoaded", function () {
   const imagesTab = document.querySelector("#pills-images-tab");
   imagesTab.addEventListener("shown.bs.tab", function () {
@@ -24,7 +25,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+// image light gallary
 
+// video gallary
 const gallery = document.getElementById("gallery");
 const videoModal = new bootstrap.Modal(document.getElementById("videoModal"));
 const videoFrame = document.getElementById("videoFrame");
@@ -43,6 +46,8 @@ document
   .addEventListener("hidden.bs.modal", function () {
     videoFrame.src = "";
   });
+
+// video gallary
 
 function openPDF(url) {
   document.getElementById("pdfViewer").src = url;
