@@ -27,28 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // image light gallary
 
-// video gallary
-const gallery = document.getElementById("gallery");
-const videoModal = new bootstrap.Modal(document.getElementById("videoModal"));
-const videoFrame = document.getElementById("videoFrame");
-
-gallery.addEventListener("click", function (e) {
-  const target = e.target;
-  if (target.classList.contains("video-thumb")) {
-    const videoUrl = target.getAttribute("data-video");
-    videoFrame.src = videoUrl + "?autoplay=1";
-    videoModal.show();
-  }
-});
-
-document
-  .getElementById("videoModal")
-  .addEventListener("hidden.bs.modal", function () {
-    videoFrame.src = "";
-  });
-
-// video gallary
-
 function openPDF(url) {
   document.getElementById("pdfViewer").src = url;
   document.getElementById("pdfViewerContainer").style.display = "block";
@@ -147,5 +125,46 @@ document.querySelector("#detailsButton").addEventListener("click", () => {
       );
       filesTab.show();
     }
+  }
+});
+
+// Initialize Bootstrap Modal with backdrop and keyboard options
+const videoModal = new bootstrap.Modal(document.getElementById("videoModal"), {
+  backdrop: true, // Enable clicking on backdrop to close
+  keyboard: true, // Allow closing with ESC key
+});
+
+// Handle video thumbnail clicks to open the modal
+const videoThumbs = document.querySelectorAll(".video-thumb");
+videoThumbs.forEach((thumb) => {
+  thumb.addEventListener("click", (e) => {
+    e.preventDefault();
+    const videoUrl = thumb.getAttribute("data-video");
+    const videoFrame = document.getElementById("videoFrame");
+    videoFrame.src = videoUrl;
+    videoModal.show();
+  });
+});
+
+// Clear video source when modal is closed
+document
+  .getElementById("videoModal")
+  .addEventListener("hidden.bs.modal", () => {
+    document.getElementById("videoFrame").src = "";
+  });
+
+// Close the modal when clicking outside the video (on the backdrop)
+document.addEventListener("click", (event) => {
+  const modal = document.getElementById("videoModal");
+  const modalDialog = modal.querySelector(".modal-dialog");
+  const modalInstance = bootstrap.Modal.getInstance(modal);
+
+  // Check if the modal is open and the click was outside the modal dialog
+  if (
+    modalInstance &&
+    modal.classList.contains("show") &&
+    !modalDialog.contains(event.target)
+  ) {
+    modalInstance.hide();
   }
 });
