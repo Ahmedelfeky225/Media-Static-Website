@@ -130,7 +130,7 @@ h3 {
 }
 
 .logo .logo-img {
-  width: 200px;
+  width: 250px;
   height: auto;
 }
 
@@ -140,7 +140,7 @@ h3 {
 }
 
 .search-box input {
-  width: 100%;
+  width: 90% !important;
   padding: 13px 20px;
   font-size: 20px;
   border: 1px solid #e1bfbf;
@@ -149,6 +149,7 @@ h3 {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   outline: none;
   color: #555555;
+  margin: auto;
 }
 
 .search-box input::placeholder {
@@ -258,16 +259,21 @@ h3 {
   color: #838383;
 }
 .head-collapse {
-  padding: 12px !important;
+  padding: 12px 6px !important;
 }
-.accordion-button {
+.accordion-button,
+accordion-button {
   background-color: #fff !important;
   box-shadow: none !important;
-
+  border: 1px solid #ececec;
+  border-radius: 4px;
   padding: 10px !important;
 }
 .accordion-button:hover {
   background-color: #1274eb0f !important;
+}
+.comments-header {
+  align-items: center;
 }
 
 .custom-dropdownn {
@@ -276,4 +282,9 @@ h3 {
 }
 .custom-dropdownn .dropdown-item {
   color: #ffffff;
+}
+
+.backdrop-overlay {
+  position: fixed;
+  width: 100%;
 }

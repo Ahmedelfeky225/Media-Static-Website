@@ -102,8 +102,9 @@ if (document.querySelectorAll(".sendComment")) {
               `;
             commentsSection.appendChild(newComment);
 
-            const commentCountElement = document.querySelector(
-              `#${collapseId} .icon-group:nth-child(2) .number`
+            const accordionItem = button.closest(".accordion-item");
+            const commentCountElement = accordionItem.querySelector(
+              ".accordion-body .icon-group:nth-child(2) .number"
             );
             if (commentCountElement) {
               let currentCount = parseInt(commentCountElement.textContent) || 0;
@@ -138,13 +139,4 @@ if (document.getElementById("logout")) {
     event.preventDefault();
     window.location.href = "index.html";
   });
-}
-
-if (document.querySelector(".overlay")) {
-  document
-    .querySelector(".overlay")
-    .addEventListener("click", function (event) {
-      event.stopPropagation();
-      document.querySelector(".overlay").classList.remove("active");
-    });
 }
