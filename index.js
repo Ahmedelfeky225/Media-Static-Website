@@ -1,170 +1,150 @@
-// image light gallary
+// ---> LIGHT IMAGE GALLARY <--- //
 document.addEventListener("DOMContentLoaded", function () {
   const imagesTab = document.querySelector("#pills-images-tab");
-  imagesTab.addEventListener("shown.bs.tab", function () {
-    const gallery = document.querySelector(".contain-img");
-    if (gallery) {
-      lightGallery(gallery, {
-        selector: ".lg-item",
-        download: false,
-        thumbnail: true,
-        thumbnailWidth: 80,
-        thumbnailHeight: 60,
-        showThumbByDefault: true,
-        zoom: true,
-        actualSize: false,
-        onInit: function () {
-          console.log("LightGallery initialized");
-        },
-        onError: function (error) {
-          console.log("LightGallery Error:", error);
-        },
-      });
-    } else {
-      console.log("Gallery element not found");
-    }
-  });
+  if (imagesTab) {
+    imagesTab.addEventListener("shown.bs.tab", function () {
+      const gallery = document.querySelector(".contain-img");
+      if (gallery) {
+        // تدمير الـ instance القديمة لو موجودة عشان نضمن إعادة التهيئة
+        if (typeof gallery.lightGallery === "function") {
+          gallery.lightGallery().destroy(true);
+        }
+        lightGallery(gallery, {
+          selector: ".lg-item",
+          download: false,
+          thumbnail: true,
+          thumbnailWidth: 80,
+          thumbnailHeight: 60,
+          showThumbByDefault: true,
+          zoom: true,
+          actualSize: false,
+          mode: "lg-slide", // تغيير نوع الـ slider لـ slide
+        });
+      }
+    });
+  }
 });
-// image light gallary
+// ---> LIGHT IMAGE GALLARY <--- //
 
-function openPDF(url) {
-  document.getElementById("pdfViewer").src = url;
-  document.getElementById("pdfViewerContainer").style.display = "block";
-  document
-    .getElementById("pdfViewerContainer")
-    .scrollIntoView({ behavior: "smooth" });
-}
-
-function closePDF() {
-  document.getElementById("pdfViewer").src = "";
-  document.getElementById("pdfViewerContainer").style.display = "none";
-}
-
-const kuwaitTvLink = document.getElementById("kuwait-tv-link");
+// ---> VIDEO GALLARY <--- //
+const TvLink = document.getElementById("tv-link");
 const overlay = document.querySelector(".overlay");
 const overlayBackdrop = document.querySelector(".overlay-backdrop");
 
-kuwaitTvLink.addEventListener("click", function (event) {
-  event.preventDefault();
-  overlay.classList.add("active");
-});
-
-overlayBackdrop.addEventListener("click", function (event) {
-  if (event.target === overlayBackdrop) {
-    overlay.classList.remove("active");
-  }
-});
-
-const collapseIds = [
-  "#collapseCard1",
-  "#collapseCard2",
-  "#collapseCard3",
-  "#collapseCard4",
-  "#collapseComments",
-  "#textParagraph",
-];
-
-collapseIds.forEach((id) => {
-  const collapseElement = document.querySelector(id);
-  const button = document.querySelector(`[data-bs-target="${id}"]`);
-  const icon = button ? button.querySelector(".icon") : null;
-
-  if (icon) {
-    collapseElement.addEventListener("show.bs.collapse", () => {
-      icon.style.transform = "rotate(180deg)";
-      icon.style.transition = "transform 0.3s ease";
-    });
-
-    collapseElement.addEventListener("hide.bs.collapse", () => {
-      icon.style.transform = "rotate(0deg)";
-    });
-  }
-});
-
-// Show overlay when clicking "تليفزيون الكويت" link
-document.querySelector("#kuwait-tv-link").addEventListener("click", (e) => {
-  e.preventDefault();
-  document.querySelector(".overlay").classList.add("active");
-});
-
-// Handle dropdown menu item clicks for the new dropdown
-document.querySelectorAll(".custom-dropdown .dropdown-item").forEach((item) => {
-  item.addEventListener("click", (e) => {
-    e.preventDefault();
-    const section = item.getAttribute("data-section");
-
-    if (section === "kuwait-newspaper") {
-      // Show the text-paragraph and card-comments
-      const textParagraph = document.querySelector("#textParagraph");
-      const textParagraphCollapse = new bootstrap.Collapse(textParagraph, {
-        toggle: false,
-      });
-      textParagraphCollapse.show();
-
-      const cardComments = document.querySelector(".card-comments");
-      cardComments.style.display = "block";
-
-      // Change the "عرض التفاصيل" button to "المرفقات"
-      const detailsButton = document.querySelector("#detailsButton span");
-      detailsButton.textContent = "المرفقات";
+if (TvLink) {
+  TvLink.addEventListener("click", function (event) {
+    event.preventDefault();
+    if (overlay) {
+      overlay.classList.add("active");
     }
   });
-});
+}
 
-// Handle "المرفقات" button click to show navigation tab
-document.querySelector("#detailsButton").addEventListener("click", () => {
-  const detailsButtonText = document.querySelector(
-    "#detailsButton span"
-  ).textContent;
-  if (detailsButtonText === "المرفقات") {
-    const navigationTab = document.querySelector(".navigaton-tab");
-    if (navigationTab.style.display === "none") {
-      navigationTab.style.display = "block";
-      const filesTab = new bootstrap.Tab(
-        document.querySelector("#pills-files-tab")
+if (overlayBackdrop) {
+  overlayBackdrop.addEventListener("click", function (event) {
+    if (event.target === overlayBackdrop && overlay) {
+      overlay.classList.remove("active");
+    }
+  });
+}
+
+if (document.querySelectorAll(".video-thumb")) {
+  document.querySelectorAll(".video-thumb").forEach((thumb) => {
+    thumb.addEventListener("click", () => {
+      const videoUrl = thumb.getAttribute("data-video");
+      const videoFrame = document.getElementById("videoFrame");
+      if (videoFrame) {
+        videoFrame.src = videoUrl;
+        const videoModal = new bootstrap.Modal(
+          document.getElementById("videoModal")
+        );
+        videoModal.show();
+      }
+    });
+  });
+}
+
+if (document.getElementById("videoModal")) {
+  document
+    .getElementById("videoModal")
+    .addEventListener("hidden.bs.modal", () => {
+      const videoFrame = document.getElementById("videoFrame");
+      if (videoFrame) {
+        videoFrame.src = "";
+      }
+    });
+}
+// ---> VIDEO GALLARY <--- //
+
+// ---> COMMENTS <--- //
+if (document.querySelectorAll(".sendComment")) {
+  document.querySelectorAll(".sendComment").forEach((button) => {
+    button.addEventListener("click", () => {
+      const collapseId = button.getAttribute("data-collapse");
+      const commentInput = document.querySelector(
+        `.commentInput[data-collapse="${collapseId}"]`
       );
-      filesTab.show();
+      if (commentInput) {
+        const commentText = commentInput.value.trim();
+        if (commentText) {
+          const commentsSection = document.getElementById(
+            `commentsSection${collapseId.replace("collapseCard", "")}`
+          );
+          if (commentsSection) {
+            const newComment = document.createElement("div");
+            newComment.className = "comment";
+            newComment.innerHTML = `
+                <div class="head-comment">
+                  <img src="./images/Ellipse 88.jpg" alt="" />
+                  <span class="name">عمر احمد</span>
+                </div>
+                <div class="desc-comments">${commentText}</div>
+              `;
+            commentsSection.appendChild(newComment);
+
+            const commentCountElement = document.querySelector(
+              `#${collapseId} .icon-group:nth-child(2) .number`
+            );
+            if (commentCountElement) {
+              let currentCount = parseInt(commentCountElement.textContent) || 0;
+              commentCountElement.textContent = currentCount + 1;
+            }
+
+            commentInput.value = "";
+          }
+        }
+      }
+    });
+  });
+}
+// ---> COMMENTS <--- //
+
+// ---> SCROLL TO NAVIGATION TAB <--- //
+if (document.getElementById("detailsButton")) {
+  document.getElementById("detailsButton").addEventListener("click", () => {
+    const navigationTabs = document.getElementById("navigationTabs");
+    if (navigationTabs) {
+      navigationTabs.style.display = "block";
+      navigationTabs.scrollIntoView({ behavior: "smooth" });
     }
-  }
-});
-
-// Initialize Bootstrap Modal with backdrop and keyboard options
-const videoModal = new bootstrap.Modal(document.getElementById("videoModal"), {
-  backdrop: true, // Enable clicking on backdrop to close
-  keyboard: true, // Allow closing with ESC key
-});
-
-// Handle video thumbnail clicks to open the modal
-const videoThumbs = document.querySelectorAll(".video-thumb");
-videoThumbs.forEach((thumb) => {
-  thumb.addEventListener("click", (e) => {
-    e.preventDefault();
-    const videoUrl = thumb.getAttribute("data-video");
-    const videoFrame = document.getElementById("videoFrame");
-    videoFrame.src = videoUrl;
-    videoModal.show();
   });
-});
+}
+// ---> SCROLL TO NAVIGATION TAB <--- //
 
-// Clear video source when modal is closed
-document
-  .getElementById("videoModal")
-  .addEventListener("hidden.bs.modal", () => {
-    document.getElementById("videoFrame").src = "";
+// LOGOUT
+
+if (document.getElementById("logout")) {
+  document.getElementById("logout").addEventListener("click", function (event) {
+    event.preventDefault();
+    window.location.href = "index.html";
   });
+}
 
-// Close the modal when clicking outside the video (on the backdrop)
-document.addEventListener("click", (event) => {
-  const modal = document.getElementById("videoModal");
-  const modalDialog = modal.querySelector(".modal-dialog");
-  const modalInstance = bootstrap.Modal.getInstance(modal);
-
-  // Check if the modal is open and the click was outside the modal dialog
-  if (
-    modalInstance &&
-    modal.classList.contains("show") &&
-    !modalDialog.contains(event.target)
-  ) {
-    modalInstance.hide();
-  }
-});
+if (document.querySelector(".overlay")) {
+  document
+    .querySelector(".overlay")
+    .addEventListener("click", function (event) {
+      event.stopPropagation();
+      document.querySelector(".overlay").classList.remove("active");
+    });
+}

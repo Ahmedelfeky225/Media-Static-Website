@@ -15,62 +15,72 @@
       href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
     />
 
-    <!-- Bootstrap Icons -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
     />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="details-page.css" />
+    <link rel="stylesheet" href="mediaQueries.css" />
   </head>
   <body>
     <section class="login-container d-flex">
-      <form class="login-form w-50" id="loginForm">
-        <h1>تسجيل الدخول</h1>
+      <div class="contain-form">
+        <img
+          src="images/Frame 1000008225.png"
+          style="width: 200px; margin-bottom: 50px"
+          alt=""
+        />
+        <form class="login-form" id="loginForm">
+          <h1>تسجيل الدخول</h1>
 
-        <!-- رقم الهاتف + أيقونة -->
-        <div class="w-50 contain-input" style="position: relative">
-          <input class="w-100" type="text" placeholder="رقم الهاتف" />
-          <i
-            class="bi bi-telephone"
-            style="
-              position: absolute;
-              right: 10px;
-              top: 50%;
-              transform: translateY(-50%);
-              color: #555c60;
-            "
-          ></i>
-        </div>
+          <!-- رقم الهاتف + أيقونة -->
+          <div class="contain-input" style="position: relative">
+            <input class="w-100" type="text" placeholder="رقم الهاتف" />
+            <i
+              class="bi bi-telephone"
+              style="
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: #555c60;
+              "
+            ></i>
+          </div>
 
-        <!-- كلمة المرور + أيقونة -->
-        <div class="w-50 contain-input" style="position: relative">
-          <input class="w-100" type="password" placeholder="كلمه المرور" />
-          <i
-            class="bi bi-lock"
-            style="
-              position: absolute;
-              right: 10px;
-              top: 50%;
-              transform: translateY(-50%);
-              color: #555c60;
-            "
-          ></i>
-        </div>
+          <div class="contain-input" style="position: relative">
+            <input class="w-100" type="password" placeholder="كلمه المرور" />
+            <i
+              class="bi bi-lock"
+              style="
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: #555c60;
+              "
+            ></i>
+          </div>
 
-        <!-- تذكرني لاحقاً -->
-        <div
-          class="remember-text d-flex w-50 align-items-center justify-content-start"
-        >
-          <img src="./images/Vector (7).png" alt="" style="margin-left: 5px" />
-          <a class="mb-0" style="color: #053b6a; font-size: 13px">
-            تذكرني لاحقاً
-          </a>
-        </div>
+          <div
+            class="remember-text d-flex w-100 align-items-center justify-content-start"
+          >
+            <img
+              src="./images/Vector (7).png"
+              alt=""
+              style="margin-left: 5px"
+            />
+            <a class="mb-0" style="color: #053b6a; font-size: 13px">
+              تذكرني لاحقاً
+            </a>
+          </div>
 
-        <button type="submit" class="bg-dark">تسجيل الدخول</button>
-      </form>
-
+          <button class="btn-form" type="submit" class="bg-dark">
+            تسجيل الدخول
+          </button>
+        </form>
+      </div>
       <div
         class="welcome-message justify-content-center bg-red w-50 d-flex justify-content-center align-items-center"
         style="margin-top: 350px"
@@ -83,7 +93,7 @@
 
     <script>
       document
-        .getElementById("loginForm")
+        .querySelector(".btn-form")
         .addEventListener("click", function (e) {
           e.preventDefault();
           window.location.href = "SearchPage.html";

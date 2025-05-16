@@ -1,0 +1,197 @@
+@media (max-width: 867px) {
+  /* Login Page */
+  .login-container {
+    justify-content: center;
+    flex-direction: column !important;
+  }
+  .contain-form {
+    width: 100% !important;
+    padding: 0 20px;
+  }
+  .login-form {
+    width: 100% !important;
+  }
+  .welcome-message,
+  .welcome-message img {
+    margin-top: 0 !important;
+    flex-grow: 1 !important;
+    width: 100% !important;
+    background-color: #babeb9;
+  }
+  .login-form input,
+  .login-form .contain-input,
+  .remember-text,
+  .login-form button {
+    width: 100% !important;
+  }
+
+  /* Search Page */
+  .search-container,
+  .container {
+    padding: 10px;
+    background-position: 6% !important;
+  }
+  .search-container .header img,
+  .container .header img {
+    width: 30px;
+  }
+  .search-box input {
+    padding: 10px 14px 14px;
+  }
+  .search-box input::placeholder {
+    font-size: 16px;
+  }
+  .container .content-details {
+    padding: 10px !important;
+  }
+  .content-details .search-box input {
+    padding: 5px 10px;
+    padding-bottom: 10px !important;
+    margin-right: 5px;
+  }
+
+  /* General */
+  .table-responsive table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .table-responsive th,
+  .table-responsive td {
+    min-width: 100px;
+    font-size: 14px;
+  }
+  .accordion-body,
+  .comments,
+  .write-comments {
+    padding: 0 !important;
+  }
+  .write-comments input::placeholder {
+    font-size: 11px !important;
+    letter-spacing: 1px;
+  }
+  .write-comments .icon-send {
+    left: -8px !important;
+  }
+  .show-details .title-second,
+  .main-details .head .title {
+    font-size: 12px;
+  }
+  .show-details .btn-details span {
+    padding: 10px 15px !important;
+    font-size: 14px;
+  }
+  .show-details .btn-details svg {
+    width: 15px !important;
+  }
+  .show-details .btn-details span:first-child {
+    font-size: 12px;
+    padding: 7px 15px !important;
+  }
+  .comments .desc-comments {
+    font-size: 12px !important;
+    line-height: 1.8;
+  }
+  .content-details .main-details {
+    padding-left: 0 !important;
+  }
+  ::placeholder {
+    font-family: "Cairo", sans-serif;
+    color: #a6a6a6;
+    letter-spacing: 1px;
+    font-size: 16px;
+  }
+  .card .text {
+    font-size: 12px !important;
+  }
+  .collapse-title > span {
+    font-size: 14px;
+  }
+  .card .number {
+    font-size: 12px !important;
+  }
+  .search-logo .logo img {
+    width: 170px;
+  }
+  .nav-pills {
+    padding: 0 10px 0 0;
+    padding-bottom: 10px;
+  }
+  .lg-outer .lg-image {
+    width: 100% !important; /* أخدت القيمة الأخيرة */
+  }
+  .lg-actions .lg-prev,
+  .lg-actions .lg-next {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 15px !important;
+    border-radius: 50% !important;
+  }
+  .lg-actions .lg-prev {
+    left: 15% !important;
+  }
+  .lg-actions .lg-next {
+    right: 15% !important;
+  }
+  .nav-pills .nav-link {
+    font-size: 14px !important;
+  }
+}
+
+@media (min-width: 868px) and (max-width: 1200px) {
+  .search-container,
+  .container {
+    background-position: 0% !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .lg-actions .lg-prev {
+    left: 25px !important;
+  }
+  .lg-actions .lg-next {
+    right: 25px !important;
+  }
+  .lg-outer .lg-image {
+    width: 100% !important;
+    height: 300px !important;
+  }
+  .show-details .btn-details span:last-child {
+    padding: 10px !important;
+  }
+  .main .head,
+  .show-details .btn-details {
+    padding-left: 15px !important;
+  }
+  .contain-form img {
+    display: none;
+  }
+  .main-content {
+    padding: 0 10px !important;
+  }
+  .overlay {
+    margin-top: 0 !important;
+  }
+
+  .dropdown-menu {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-inline: 0;
+  }
+  .table-responsive {
+    overflow-x: auto;
+    display: block;
+    max-width: 300px;
+  }
+  .table-responsive th,
+  .table-responsive td,
+  .table-responsive .btn.btn-link {
+    font-size: 12px;
+    padding: 8px;
+  }
+  .table-responsive td .d-flex {
+    flex-direction: column
+    align-items: center;
+    gap: 5px;
+  }
+}
