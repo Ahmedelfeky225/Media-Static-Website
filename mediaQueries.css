@@ -163,7 +163,10 @@
   .show-details .btn-details {
     padding-left: 15px !important;
   }
-
+  .contain-form > img {
+    width: 180px !important;
+    margin-bottom: 15px !important;
+  }
   .main-content {
     padding: 0 10px !important;
   }
