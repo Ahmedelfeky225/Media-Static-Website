@@ -288,3 +288,67 @@ accordion-button {
   position: fixed;
   width: 100%;
 }
+.table-responsive {
+  width: 100% !important;
+}
+
+.references-box a {
+  color: #1a0dab;
+  text-decoration: none;
+}
+.references-box a:hover {
+  text-decoration: underline !important;
+}
+
+/*---> Popup help ---*/
+.popup-container {
+  position: relative;
+  display: inline-block;
+}
+.popup {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0 !important;
+  background: linear-gradient(135deg, #ffffff, #f0f4ff);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  width: 200px;
+  z-index: 1000;
+  margin-top: 5px;
+  border: 1px solid #e0e0e0;
+}
+.popup.show {
+  display: block;
+}
+.popup-title {
+  font-family: "Cairo", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a3c87;
+  margin-bottom: 10px;
+  text-align: right;
+}
+.popup-message {
+  font-family: "Cairo", sans-serif;
+  font-size: 14px;
+  color: #333;
+  text-align: right;
+  line-height: 1.5;
+}
+.exclamation-icon {
+  cursor: pointer;
+}
+.icons img {
+  transition: transform 0.2s;
+}
+.icons img:hover {
+  transform: scale(1.1);
+}
+
+/* Popup Message */
+
+.icon-group {
+  cursor: pointer;
+}

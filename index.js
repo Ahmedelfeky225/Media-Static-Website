@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
     imagesTab.addEventListener("shown.bs.tab", function () {
       const gallery = document.querySelector(".contain-img");
       if (gallery) {
-        // تدمير الـ instance القديمة لو موجودة عشان نضمن إعادة التهيئة
         if (typeof gallery.lightGallery === "function") {
           gallery.lightGallery().destroy(true);
         }
@@ -18,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
           showThumbByDefault: true,
           zoom: true,
           actualSize: false,
-          mode: "lg-slide", // تغيير نوع الـ slider لـ slide
+          mode: "lg-slide",
         });
       }
     });
@@ -139,4 +138,88 @@ if (document.getElementById("logout")) {
     event.preventDefault();
     window.location.href = "index.html";
   });
+}
+
+// Popup Message
+
+function togglePopup() {
+  const popup = document.getElementById("helpPopup");
+  popup.classList.toggle("show");
+}
+
+document.addEventListener("click", function (event) {
+  const popup = document.getElementById("helpPopup");
+  const icon = document.querySelector(".exclamation-icon");
+  if (!popup.contains(event.target) && !icon.contains(event.target)) {
+    popup.classList.remove("show");
+  }
+});
+
+function toggleComments(commentsId, accordionId) {
+  const commentsSection = document.querySelector(
+    `#${accordionId} .comments-section`
+  );
+  const commentsCollapse = document.getElementById(commentsId);
+  const accordionItem = document.getElementById(accordionId);
+  const navigationTab = document.getElementById(
+    `navigationTabs${accordionId.slice(-1)}`
+  );
+
+  const bootstrapCollapse = new bootstrap.Collapse(accordionItem, {
+    toggle: false,
+  });
+  bootstrapCollapse.show();
+
+  if (navigationTab.style.display === "block") {
+    navigationTab.style.display = "none";
+  }
+
+  const commentsBootstrapCollapse = new bootstrap.Collapse(commentsCollapse, {
+    toggle: false,
+  });
+  commentsBootstrapCollapse.show();
+  commentsSection.style.display = "block";
+}
+
+function showFiles(accordionId, commentsId) {
+  const commentsSection = document.querySelector(
+    `#${accordionId} .comments-section`
+  );
+  const commentsCollapse = document.getElementById(commentsId);
+  const accordionItem = document.getElementById(accordionId);
+  const navigationTab = document.getElementById(
+    `navigationTabs${accordionId.slice(-1)}`
+  );
+
+  const bootstrapCollapse = new bootstrap.Collapse(accordionItem, {
+    toggle: false,
+  });
+  bootstrapCollapse.show();
+
+  if (commentsSection.style.display !== "none") {
+    const commentsBootstrapCollapse = new bootstrap.Collapse(commentsCollapse, {
+      toggle: false,
+    });
+    commentsBootstrapCollapse.hide();
+    setTimeout(() => {
+      commentsSection.style.display = "none";
+    }, 350);
+  }
+
+  navigationTab.style.display = "block";
+}
+
+// Close Modal in SearchPage.html
+
+function closeModal() {
+  const modal = document.getElementById("exampleModal");
+  const bootstrapModal = bootstrap.Modal.getInstance(modal);
+  if (bootstrapModal) {
+    bootstrapModal.hide();
+  }
+}
+
+function togglePopup() {
+  const popup = document.getElementById("helpPopup");
+  popup.classList.toggle("show");
 }
