@@ -28,7 +28,7 @@ h3 {
 .login-container {
   width: 100%;
   margin: 0 auto;
-  background: url("/images/57b71f9c621f581792fa8ce8be0a2d4e4df8b8b5.png")
+  background: url("/images/welcome-message.jpeg")
     no-repeat center center;
   background-size: cover;
   display: flex;
@@ -94,7 +94,7 @@ h3 {
 .search-container {
   width: 100%;
   margin: 0 auto;
-  background: url("/images/57b71f9c621f581792fa8ce8be0a2d4e4df8b8b5.png")
+  background: url("/images/welcome-message.jpeg")
     no-repeat center center;
   background-size: cover;
   min-height: 100dvh;
